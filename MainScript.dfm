@@ -101,9 +101,9 @@ object Patcher: TPatcher
       ImageIndex = 1
       object GroupBox1: TGroupBox
         Left = 3
-        Top = 24
+        Top = 0
         Width = 327
-        Height = 224
+        Height = 249
         Caption = 'Available patches'
         TabOrder = 0
         object lb_TextFPS: TLabel
@@ -209,17 +209,6 @@ object Patcher: TPatcher
           TabOrder = 4
           OnClick = RuntimePatchClickProc
         end
-      end
-      object cb_InjectDll: TCheckBox
-        Left = 8
-        Top = 3
-        Width = 318
-        Height = 17
-        Caption = 'Inject dll (UOMod.dll) in to client'#39's memory'
-        Checked = True
-        State = cbChecked
-        TabOrder = 1
-        OnClick = cb_InjectDllClick
       end
     end
     object ts_PatchFile: TTabSheet

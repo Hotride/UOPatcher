@@ -240,11 +240,6 @@ void __fastcall TPatcher::lb_ClientListClick(TObject *Sender)
 
 	if (dllWindow == NULL)
 	{
-		if (!cb_InjectDll->Checked)
-		{
-			return;
-		}
-
 		String path = ExtractFilePath(Application->ExeName) + "\\UOMod.dll";
 
 		if (!FileExists(path))
@@ -429,23 +424,6 @@ void __fastcall TPatcher::tm_CreationTimer(TObject *Sender)
 	}
 
 	AlphaBlendValue = (unsigned char)alpha;
-}
-//---------------------------------------------------------------------------
-void __fastcall TPatcher::cb_InjectDllClick(TObject *Sender)
-{
-	if (!cb_InjectDll->Checked)
-	{
-		cb_FPS->Enabled = false;
-		lb_TextFPS->Font->Color = clGray;
-	}
-	else if (lb_ClientList->ItemIndex != -1)
-	{
-		HWND hwnd = m_ClientList[lb_ClientList->ItemIndex];
-		HWND dllWindow = FindWindow(("UOModWindow_" + IntToHex((int)hwnd, 8)).t_str(), NULL);
-
-		if (dllWindow != 0)
-			SendMessage(dllWindow, PM_INFO, (DWORD)Handle, 0xFFFFFFFF);
-	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TPatcher::img_RefreshFilePatchesClick(TObject *Sender)

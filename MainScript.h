@@ -58,7 +58,6 @@ __published:	// IDE-managed Components
 	TOpenDialog *od_ClientPath;
 	TEdit *eb_ClientPath;
 	TGroupBox *GroupBox1;
-	TCheckBox *cb_InjectDll;
 	TCheckBox *cb_FPS;
 	TCheckBox *cb_Stamina;
 	TCheckBox *cb_AlwaysLight;
@@ -103,7 +102,6 @@ __published:	// IDE-managed Components
 	void __fastcall TextLabelRuntimePatckClickProc(TObject *Sender);
 	void __fastcall FileTextLabelRuntimePatckClickProc(TObject *Sender);
 	void __fastcall tm_CreationTimer(TObject *Sender);
-	void __fastcall cb_InjectDllClick(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
 	void __fastcall img_RefreshFilePatchesClick(TObject *Sender);
 	void __fastcall bt_ClientPatchClick(TObject *Sender);
