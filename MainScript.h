@@ -24,6 +24,7 @@ enum PATCH_TYPE
 	PT_RESOLUTION,
 	PT_OPTIONS_NOTIFICATION,
 	PT_MULTI_UO,
+	PT_NO_CRYPT,
 	PT_COUNT
 };
 //---------------------------------------------------------------------------
@@ -42,7 +43,6 @@ enum PATCH_MESSAGES
 	PM_DISABLE
 };
 //---------------------------------------------------------------------------
-typedef DWORD __cdecl GET_PROCESS_PATCHES_FUN(HWND, DWORD);
 typedef DWORD __cdecl GET_FILE_PATCHES_FUN(const char*);
 typedef DWORD __cdecl SET_FILE_PATCHES_FUN(const char*, DWORD);
 //---------------------------------------------------------------------------
@@ -92,6 +92,8 @@ __published:	// IDE-managed Components
 	TCheckBox *cb_OptionsNotification;
 	TLabel *lb_FileTextMultiUO;
 	TCheckBox *cb_FileMultiUO;
+	TCheckBox *cb_FileNoCrypt;
+	TLabel *lb_FileTextNoCrypt;
 	void __fastcall eb_ClientPathKeyUp(TObject *Sender, WORD &Key, TShiftState Shift);
 	void __fastcall bt_SetClientPatchClick(TObject *Sender);
 	void __fastcall lb_OrionGitHubClick(TObject *Sender);

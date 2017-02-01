@@ -4,7 +4,7 @@ object Patcher: TPatcher
   AlphaBlend = True
   AlphaBlendValue = 0
   BorderStyle = bsSingle
-  Caption = 'UO Patcher v1701.29 by Hotride'
+  Caption = 'UO Patcher v1702.01 by Hotride'
   ClientHeight = 297
   ClientWidth = 658
   Color = clBtnFace
@@ -355,6 +355,15 @@ object Patcher: TPatcher
           Caption = 'Multi client'
           OnClick = FileTextLabelRuntimePatckClickProc
         end
+        object lb_FileTextNoCrypt: TLabel
+          Tag = 9
+          Left = 26
+          Top = 184
+          Width = 56
+          Height = 17
+          Caption = 'No crypt'
+          OnClick = FileTextLabelRuntimePatckClickProc
+        end
         object cb_FileStamina: TCheckBox
           Tag = 2
           Left = 8
@@ -434,6 +443,15 @@ object Patcher: TPatcher
           Height = 17
           Enabled = False
           TabOrder = 7
+        end
+        object cb_FileNoCrypt: TCheckBox
+          Tag = 9
+          Left = 8
+          Top = 184
+          Width = 17
+          Height = 17
+          Enabled = False
+          TabOrder = 8
         end
       end
     end
