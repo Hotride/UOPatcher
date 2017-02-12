@@ -25,6 +25,7 @@ enum PATCH_TYPE
 	PT_OPTIONS_NOTIFICATION,
 	PT_MULTI_UO,
 	PT_NO_CRYPT,
+	PT_GLOBAL_SOUND,
 	PT_COUNT
 };
 //---------------------------------------------------------------------------
@@ -94,6 +95,8 @@ __published:	// IDE-managed Components
 	TCheckBox *cb_FileMultiUO;
 	TCheckBox *cb_FileNoCrypt;
 	TLabel *lb_FileTextNoCrypt;
+	TLabel *lb_FileTextGlobalSound;
+	TCheckBox *cb_FileGlobalSound;
 	void __fastcall eb_ClientPathKeyUp(TObject *Sender, WORD &Key, TShiftState Shift);
 	void __fastcall bt_SetClientPatchClick(TObject *Sender);
 	void __fastcall lb_OrionGitHubClick(TObject *Sender);

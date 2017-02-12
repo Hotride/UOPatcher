@@ -4,7 +4,7 @@ object Patcher: TPatcher
   AlphaBlend = True
   AlphaBlendValue = 0
   BorderStyle = bsSingle
-  Caption = 'UO Patcher v1702.01 by Hotride'
+  Caption = 'UO Patcher v1702.12 by Hotride'
   ClientHeight = 297
   ClientWidth = 658
   Color = clBtnFace
@@ -110,45 +110,45 @@ object Patcher: TPatcher
           Tag = 1
           Left = 26
           Top = 24
-          Width = 24
+          Width = 30
           Height = 17
-          Caption = 'FPS'
+          Caption = 'FPS '
           OnClick = TextLabelRuntimePatckClickProc
         end
         object lb_TextStamina: TLabel
           Tag = 2
           Left = 26
           Top = 47
-          Width = 48
+          Width = 54
           Height = 17
-          Caption = 'Stamina'
+          Caption = 'Stamina '
           OnClick = TextLabelRuntimePatckClickProc
         end
         object lb_TextAlwaysLight: TLabel
           Tag = 3
           Left = 26
           Top = 70
-          Width = 72
+          Width = 78
           Height = 17
-          Caption = 'Always light'
+          Caption = 'Always light '
           OnClick = TextLabelRuntimePatckClickProc
         end
         object lb_TextPaperdollSlots: TLabel
           Tag = 4
           Left = 26
           Top = 93
-          Width = 87
+          Width = 93
           Height = 17
-          Caption = 'Paperdoll slots'
+          Caption = 'Paperdoll slots '
           OnClick = TextLabelRuntimePatckClickProc
         end
         object lb_TextOptionsNotification: TLabel
           Tag = 7
           Left = 26
           Top = 116
-          Width = 140
+          Width = 146
           Height = 17
-          Caption = 'No options notification'
+          Caption = 'No options notification '
           OnClick = TextLabelRuntimePatckClickProc
         end
         object cb_FPS: TCheckBox
@@ -242,27 +242,27 @@ object Patcher: TPatcher
           Tag = 2
           Left = 26
           Top = 23
-          Width = 48
+          Width = 54
           Height = 17
-          Caption = 'Stamina'
+          Caption = 'Stamina '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
         object lb_FileTextAlwaysLight: TLabel
           Tag = 3
           Left = 26
           Top = 46
-          Width = 72
+          Width = 78
           Height = 17
-          Caption = 'Always light'
+          Caption = 'Always light '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
         object lb_FileTextPaperdollSlots: TLabel
           Tag = 4
           Left = 26
           Top = 69
-          Width = 87
+          Width = 93
           Height = 17
-          Caption = 'Paperdoll slots'
+          Caption = 'Paperdoll slots '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
         object img_RefreshFilePatches: TImage
@@ -323,45 +323,54 @@ object Patcher: TPatcher
           Tag = 5
           Left = 26
           Top = 92
-          Width = 98
+          Width = 104
           Height = 17
-          Caption = 'No splash screen'
+          Caption = 'No splash screen '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
         object lb_FileTextResolution: TLabel
           Tag = 6
           Left = 26
           Top = 115
-          Width = 61
+          Width = 67
           Height = 17
-          Caption = 'Resolution'
+          Caption = 'Resolution '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
         object lb_FileTextOptionsNotification: TLabel
           Tag = 7
           Left = 26
           Top = 138
-          Width = 140
+          Width = 146
           Height = 17
-          Caption = 'No options notification'
+          Caption = 'No options notification '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
         object lb_FileTextMultiUO: TLabel
           Tag = 8
           Left = 26
           Top = 161
-          Width = 70
+          Width = 76
           Height = 17
-          Caption = 'Multi client'
+          Caption = 'Multi client '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
         object lb_FileTextNoCrypt: TLabel
           Tag = 9
           Left = 26
           Top = 184
-          Width = 56
+          Width = 62
           Height = 17
-          Caption = 'No crypt'
+          Caption = 'No crypt '
+          OnClick = FileTextLabelRuntimePatckClickProc
+        end
+        object lb_FileTextGlobalSound: TLabel
+          Tag = 10
+          Left = 190
+          Top = 23
+          Width = 80
+          Height = 17
+          Caption = 'Global sound '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
         object cb_FileStamina: TCheckBox
@@ -452,6 +461,15 @@ object Patcher: TPatcher
           Height = 17
           Enabled = False
           TabOrder = 8
+        end
+        object cb_FileGlobalSound: TCheckBox
+          Tag = 10
+          Left = 172
+          Top = 23
+          Width = 17
+          Height = 17
+          Enabled = False
+          TabOrder = 9
         end
       end
     end
