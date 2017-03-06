@@ -12,6 +12,7 @@
 #include <ExtCtrls.hpp>
 #include <pngimage.hpp>
 #include <CheckLst.hpp>
+#include "cspin.h"
 #include <vector>
 //---------------------------------------------------------------------------
 enum PATCH_TYPE
@@ -26,6 +27,7 @@ enum PATCH_TYPE
 	PT_MULTI_UO,
 	PT_NO_CRYPT,
 	PT_GLOBAL_SOUND,
+	PT_VIEW_RANGE,
 	PT_COUNT
 };
 //---------------------------------------------------------------------------
@@ -41,11 +43,12 @@ enum PATCH_MESSAGES
 	PM_INSTALL = WM_USER + 666,
 	PM_INFO,
 	PM_ENABLE,
-	PM_DISABLE
+	PM_DISABLE,
+	PM_VIEW_RANGE_VALUE
 };
 //---------------------------------------------------------------------------
 typedef DWORD __cdecl GET_FILE_PATCHES_FUN(const char*);
-typedef DWORD __cdecl SET_FILE_PATCHES_FUN(const char*, DWORD);
+typedef DWORD __cdecl SET_FILE_PATCHES_FUN(const char*, DWORD, int);
 //---------------------------------------------------------------------------
 class TPatcher : public TForm
 {
@@ -97,6 +100,12 @@ __published:	// IDE-managed Components
 	TLabel *lb_FileTextNoCrypt;
 	TLabel *lb_FileTextGlobalSound;
 	TCheckBox *cb_FileGlobalSound;
+	TCheckBox *cb_ViewRange;
+	TLabel *lb_TextViewRange;
+	TCheckBox *cb_FileViewRange;
+	TLabel *lb_FileTextViewRange;
+	TCSpinEdit *se_ViewRange;
+	TCSpinEdit *se_FileViewRange;
 	void __fastcall eb_ClientPathKeyUp(TObject *Sender, WORD &Key, TShiftState Shift);
 	void __fastcall bt_SetClientPatchClick(TObject *Sender);
 	void __fastcall lb_OrionGitHubClick(TObject *Sender);
@@ -131,10 +140,12 @@ public:		// User declarations
 	__fastcall TPatcher(TComponent* Owner);
 
 	void __fastcall OnMessagePathInfo(TMessage &Message);
+	void __fastcall OnMessagePathViewRange(TMessage &Message);
 
 #pragma warn -inl
 BEGIN_MESSAGE_MAP
 	MESSAGE_HANDLER(PM_INFO, TMessage, OnMessagePathInfo)
+	MESSAGE_HANDLER(PM_VIEW_RANGE_VALUE, TMessage, OnMessagePathViewRange)
 END_MESSAGE_MAP(TForm)
 };
 //---------------------------------------------------------------------------

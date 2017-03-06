@@ -4,7 +4,7 @@ object Patcher: TPatcher
   AlphaBlend = True
   AlphaBlendValue = 0
   BorderStyle = bsSingle
-  Caption = 'UO Patcher v1702.12 by Hotride'
+  Caption = 'UO Patcher v17.03.06.0 by Hotride'
   ClientHeight = 297
   ClientWidth = 658
   Color = clBtnFace
@@ -151,6 +151,15 @@ object Patcher: TPatcher
           Caption = 'No options notification '
           OnClick = TextLabelRuntimePatckClickProc
         end
+        object lb_TextViewRange: TLabel
+          Tag = 11
+          Left = 26
+          Top = 139
+          Width = 64
+          Height = 17
+          Caption = 'View range'
+          OnClick = TextLabelRuntimePatckClickProc
+        end
         object cb_FPS: TCheckBox
           Tag = 1
           Left = 8
@@ -208,6 +217,26 @@ object Patcher: TPatcher
           Enabled = False
           TabOrder = 4
           OnClick = RuntimePatchClickProc
+        end
+        object cb_ViewRange: TCheckBox
+          Tag = 11
+          Left = 8
+          Top = 139
+          Width = 17
+          Height = 17
+          Enabled = False
+          TabOrder = 5
+          OnClick = RuntimePatchClickProc
+        end
+        object se_ViewRange: TCSpinEdit
+          Left = 96
+          Top = 135
+          Width = 49
+          Height = 27
+          MaxValue = 31
+          MinValue = 18
+          TabOrder = 6
+          Value = 24
         end
       end
     end
@@ -373,6 +402,15 @@ object Patcher: TPatcher
           Caption = 'Global sound '
           OnClick = FileTextLabelRuntimePatckClickProc
         end
+        object lb_FileTextViewRange: TLabel
+          Tag = 11
+          Left = 190
+          Top = 46
+          Width = 64
+          Height = 17
+          Caption = 'View range'
+          OnClick = FileTextLabelRuntimePatckClickProc
+        end
         object cb_FileStamina: TCheckBox
           Tag = 2
           Left = 8
@@ -470,6 +508,25 @@ object Patcher: TPatcher
           Height = 17
           Enabled = False
           TabOrder = 9
+        end
+        object cb_FileViewRange: TCheckBox
+          Tag = 11
+          Left = 172
+          Top = 46
+          Width = 17
+          Height = 17
+          Enabled = False
+          TabOrder = 10
+        end
+        object se_FileViewRange: TCSpinEdit
+          Left = 260
+          Top = 42
+          Width = 49
+          Height = 27
+          MaxValue = 31
+          MinValue = 18
+          TabOrder = 11
+          Value = 24
         end
       end
     end

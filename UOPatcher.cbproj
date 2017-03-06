@@ -23,7 +23,7 @@
 			<ProjectType>CppVCLApplication</ProjectType>
 			<Multithreaded>true</Multithreaded>
 			<PackageImports>vclx.bpi;vcl.bpi;vclimg.bpi;dbrtl.bpi;Rave77VCL.bpi;bdertl.bpi;rtl.bpi;bcbie.bpi;vclactnband.bpi;xmlrtl.bpi;bcbsmp.bpi;vcldb.bpi;vcldbx.bpi;vcltouch.bpi;dsnap.bpi;dsnapcon.bpi;TeeUI.bpi;TeeDB.bpi;Tee.bpi;vclib.bpi;ibxpress.bpi;adortl.bpi;IndyCore.bpi;IndySystem.bpi;IndyProtocols.bpi;inet.bpi;intrawebdb_100_140.bpi;Intraweb_100_140.bpi;VclSmp.bpi;vclie.bpi;websnap.bpi;webdsnap.bpi;inetdb.bpi;inetdbbde.bpi;inetdbxpress.bpi;soaprtl.bpi;vclribbon.bpi;dbexpress.bpi;DbxCommonDriver.bpi;DataSnapIndy10ServerTransport.bpi;DataSnapProviderClient.bpi;DbxClientDriver.bpi;DataSnapServer.bpi;DBXInterBaseDriver.bpi;DBXMySQLDriver.bpi;dbxcds.bpi;DBXFirebirdDriver.bpi;DBXSybaseASEDriver.bpi;DBXSybaseASADriver.bpi;DBXOracleDriver.bpi;DBXMSSQLDriver.bpi;DBXInformixDriver.bpi;DBXDb2Driver.bpi</PackageImports>
-			<AllPackageLibs>rtl.lib;vcl.lib;vclx.lib;vclimg.lib</AllPackageLibs>
+			<AllPackageLibs>rtl.lib;vcl.lib;vclx.lib;vclimg.lib;bcbsmp.lib</AllPackageLibs>
 			<OutputExt>exe</OutputExt>
 			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
 			<IncludePath>$(CG_BOOST_ROOT)\boost\tr1\tr1;$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl;$(CG_BOOST_ROOT);$(IncludePath)</IncludePath>
@@ -60,16 +60,16 @@
 			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\release;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<ItemGroup>
-			<CppCompile Include="UOPatcher.cpp">
-				<BuildOrder>0</BuildOrder>
-			</CppCompile>
-			<ResFiles Include="UOPatcher.res">
-				<BuildOrder>1</BuildOrder>
-			</ResFiles>
 			<CppCompile Include="MainScript.cpp">
 				<Form>Patcher</Form>
 				<DependentOn>MainScript.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<ResFiles Include="UOPatcher.res">
+				<BuildOrder>1</BuildOrder>
+			</ResFiles>
+			<CppCompile Include="UOPatcher.cpp">
+				<BuildOrder>0</BuildOrder>
 			</CppCompile>
 			<FormResources Include="MainScript.dfm"/>
 			<BuildConfiguration Include="Base">

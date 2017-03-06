@@ -6,6 +6,7 @@
 #include "MainScript.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+#pragma link "cspin"
 #pragma resource "*.dfm"
 TPatcher *Patcher;
 //---------------------------------------------------------------------------
@@ -72,6 +73,24 @@ void __fastcall TPatcher::OnMessagePathInfo(TMessage &M)
 		M.Result = DefWindowProc(Handle, M.Msg, M.WParam, M.LParam);
 }
 //---------------------------------------------------------------------------
+void __fastcall TPatcher::OnMessagePathViewRange(TMessage &M)
+{
+	HWND hwnd = 0;
+
+	if (lb_ClientList->ItemIndex != -1)
+		hwnd = m_ClientList[lb_ClientList->ItemIndex];
+
+	if ((HWND)M.LParam == hwnd)
+	{
+		int viewRange = (int)M.WParam;
+
+		if (viewRange >= 18 && viewRange <= 31)
+			se_ViewRange->Value = viewRange;
+	}
+	else
+		M.Result = DefWindowProc(Handle, M.Msg, M.WParam, M.LParam);
+}
+//---------------------------------------------------------------------------
 __fastcall TPatcher::TPatcher(TComponent* Owner)
 : TForm(Owner), m_Dll(0)
 {
@@ -91,6 +110,7 @@ void __fastcall TPatcher::FormCreate(TObject *Sender)
 	m_CheckboxList[7] = NULL;
 	m_CheckboxList[8] = NULL;
 	m_CheckboxList[9] = NULL;
+	m_CheckboxList[10] = cb_ViewRange;
 
 	m_LabelsList[0] = lb_TextFPS;
 	m_LabelsList[1] = lb_TextStamina;
@@ -102,6 +122,7 @@ void __fastcall TPatcher::FormCreate(TObject *Sender)
 	m_LabelsList[7] = NULL;
 	m_LabelsList[8] = NULL;
 	m_LabelsList[9] = NULL;
+	m_LabelsList[10] = lb_TextViewRange;
 
 	m_FileCheckboxList[0] = NULL;
 	m_FileCheckboxList[1] = cb_FileStamina;
@@ -113,6 +134,7 @@ void __fastcall TPatcher::FormCreate(TObject *Sender)
 	m_FileCheckboxList[7] = cb_FileMultiUO;
 	m_FileCheckboxList[8] = cb_FileNoCrypt;
 	m_FileCheckboxList[9] = cb_FileGlobalSound;
+	m_FileCheckboxList[10] = cb_FileViewRange;
 
 	m_FileLabelsList[0] = NULL;
 	m_FileLabelsList[1] = lb_FileTextStamina;
@@ -124,6 +146,7 @@ void __fastcall TPatcher::FormCreate(TObject *Sender)
 	m_FileLabelsList[7] = lb_FileTextMultiUO;
 	m_FileLabelsList[8] = lb_FileTextNoCrypt;
 	m_FileLabelsList[9] = lb_FileTextGlobalSound;
+	m_FileLabelsList[10] = lb_FileTextViewRange;
 
 	EnableDebugPrivilages();
 	img_RefreshClick(img_Refresh);
@@ -379,7 +402,10 @@ void __fastcall TPatcher::lb_ClientListClick(TObject *Sender)
 	}
 
 	if (dllWindow != 0)
+	{
+		SendMessage(dllWindow, PM_VIEW_RANGE_VALUE, (DWORD)Handle, 0);
 		SendMessage(dllWindow, PM_INFO, (DWORD)Handle, 0xFFFFFFFF);
+	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TPatcher::RuntimePatchClickProc(TObject *Sender)
@@ -398,7 +424,12 @@ void __fastcall TPatcher::RuntimePatchClickProc(TObject *Sender)
 	}
 
 	if (state)
+	{
+		if (box->Tag == PT_VIEW_RANGE)
+			SendMessage(dllWindow, PM_VIEW_RANGE_VALUE, (DWORD)Handle, se_ViewRange->Value);
+
 		SendMessage(dllWindow, PM_ENABLE, (DWORD)Handle, box->Tag);
+	}
 	else
 		SendMessage(dllWindow, PM_DISABLE, (DWORD)Handle, box->Tag);
 }
@@ -479,7 +510,7 @@ void __fastcall TPatcher::bt_ClientPatchClick(TObject *Sender)
 
 		if (patches)
 		{
-			patches = fun(eb_ClientPath->Text.t_str(), patches);
+			patches = fun(eb_ClientPath->Text.t_str(), patches, se_FileViewRange->Value);
 
 			if (patches)
 			{
