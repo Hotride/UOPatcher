@@ -28,6 +28,7 @@ enum PATCH_TYPE
 	PT_NO_CRYPT,
 	PT_GLOBAL_SOUND,
 	PT_VIEW_RANGE,
+	PT_GM_STEP,
 	PT_COUNT
 };
 //---------------------------------------------------------------------------
@@ -106,6 +107,10 @@ __published:	// IDE-managed Components
 	TLabel *lb_FileTextViewRange;
 	TCSpinEdit *se_ViewRange;
 	TCSpinEdit *se_FileViewRange;
+	TCheckBox *cb_GMStep;
+	TLabel *lb_TextGMStep;
+	TCheckBox *cb_FileGMStep;
+	TLabel *lb_FileTextGMStep;
 	void __fastcall eb_ClientPathKeyUp(TObject *Sender, WORD &Key, TShiftState Shift);
 	void __fastcall bt_SetClientPatchClick(TObject *Sender);
 	void __fastcall lb_OrionGitHubClick(TObject *Sender);

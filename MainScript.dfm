@@ -4,7 +4,7 @@ object Patcher: TPatcher
   AlphaBlend = True
   AlphaBlendValue = 0
   BorderStyle = bsSingle
-  Caption = 'UO Patcher v17.03.06.0 by Hotride'
+  Caption = 'UO Patcher v17.04.08.0 by Hotride'
   ClientHeight = 297
   ClientWidth = 658
   Color = clBtnFace
@@ -160,6 +160,15 @@ object Patcher: TPatcher
           Caption = 'View range'
           OnClick = TextLabelRuntimePatckClickProc
         end
+        object lb_TextGMStep: TLabel
+          Tag = 12
+          Left = 26
+          Top = 162
+          Width = 52
+          Height = 17
+          Caption = 'GM step'
+          OnClick = TextLabelRuntimePatckClickProc
+        end
         object cb_FPS: TCheckBox
           Tag = 1
           Left = 8
@@ -238,11 +247,25 @@ object Patcher: TPatcher
           TabOrder = 6
           Value = 24
         end
+        object cb_GMStep: TCheckBox
+          Tag = 12
+          Left = 8
+          Top = 162
+          Width = 17
+          Height = 17
+          Enabled = False
+          TabOrder = 7
+          OnClick = RuntimePatchClickProc
+        end
       end
     end
     object ts_PatchFile: TTabSheet
       Caption = 'Patch client file'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object bt_SetClientPatch: TButton
         Left = 304
         Top = 2
@@ -411,6 +434,15 @@ object Patcher: TPatcher
           Caption = 'View range'
           OnClick = FileTextLabelRuntimePatckClickProc
         end
+        object lb_FileTextGMStep: TLabel
+          Tag = 12
+          Left = 190
+          Top = 69
+          Width = 52
+          Height = 17
+          Caption = 'GM step'
+          OnClick = FileTextLabelRuntimePatckClickProc
+        end
         object cb_FileStamina: TCheckBox
           Tag = 2
           Left = 8
@@ -527,6 +559,15 @@ object Patcher: TPatcher
           MinValue = 18
           TabOrder = 11
           Value = 24
+        end
+        object cb_FileGMStep: TCheckBox
+          Tag = 12
+          Left = 172
+          Top = 69
+          Width = 17
+          Height = 17
+          Enabled = False
+          TabOrder = 12
         end
       end
     end

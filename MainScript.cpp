@@ -111,6 +111,7 @@ void __fastcall TPatcher::FormCreate(TObject *Sender)
 	m_CheckboxList[8] = NULL;
 	m_CheckboxList[9] = NULL;
 	m_CheckboxList[10] = cb_ViewRange;
+	m_CheckboxList[11] = cb_GMStep;
 
 	m_LabelsList[0] = lb_TextFPS;
 	m_LabelsList[1] = lb_TextStamina;
@@ -123,6 +124,7 @@ void __fastcall TPatcher::FormCreate(TObject *Sender)
 	m_LabelsList[8] = NULL;
 	m_LabelsList[9] = NULL;
 	m_LabelsList[10] = lb_TextViewRange;
+	m_LabelsList[11] = lb_TextGMStep;
 
 	m_FileCheckboxList[0] = NULL;
 	m_FileCheckboxList[1] = cb_FileStamina;
@@ -135,6 +137,7 @@ void __fastcall TPatcher::FormCreate(TObject *Sender)
 	m_FileCheckboxList[8] = cb_FileNoCrypt;
 	m_FileCheckboxList[9] = cb_FileGlobalSound;
 	m_FileCheckboxList[10] = cb_FileViewRange;
+	m_FileCheckboxList[11] = cb_FileGMStep;
 
 	m_FileLabelsList[0] = NULL;
 	m_FileLabelsList[1] = lb_FileTextStamina;
@@ -147,6 +150,7 @@ void __fastcall TPatcher::FormCreate(TObject *Sender)
 	m_FileLabelsList[8] = lb_FileTextNoCrypt;
 	m_FileLabelsList[9] = lb_FileTextGlobalSound;
 	m_FileLabelsList[10] = lb_FileTextViewRange;
+	m_FileLabelsList[11] = lb_FileTextGMStep;
 
 	EnableDebugPrivilages();
 	img_RefreshClick(img_Refresh);
